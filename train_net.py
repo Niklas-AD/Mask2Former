@@ -22,6 +22,9 @@ from typing import Any, Dict, List, Set
 
 import torch
 
+#added
+import torch.distributed as dist
+
 import detectron2.utils.comm as comm
 from detectron2.checkpoint import DetectionCheckpointer
 from detectron2.config import get_cfg
@@ -318,6 +321,10 @@ def main(args):
 if __name__ == "__main__":
     args = default_argument_parser().parse_args()
     print("Command Line Args:", args)
+    
+    #added
+    dist.init_process_group('gloo', init_method='file:///tmp/somefile', rank=0, world_size=1)
+    
     launch(
         main,
         args.num_gpus,
