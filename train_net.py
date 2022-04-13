@@ -1,6 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
 """
 MaskFormer Training Script.
+
 This script is a simplified version of the training script in detectron2/tools.
 """
 try:
